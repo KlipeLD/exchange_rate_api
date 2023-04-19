@@ -29,7 +29,6 @@ class AuthController extends Controller
         else
         {
             return response()->json([
-                'error' => '401',
                 'message' => 'Error while authorized',
             ]);
         }

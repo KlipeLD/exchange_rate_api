@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Currency;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreRequest extends FormRequest
 {
@@ -22,7 +23,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'currency' => 'required|string|min:3|max:3',
+            'currency' => ['required','string','min:3','max:3',Rule::in(['USD', 'EUR','GBP'])],
             'amount' => 'required|numeric',
             'date' => 'required|date',
         ];
